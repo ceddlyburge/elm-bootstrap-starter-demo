@@ -11,13 +11,10 @@
   "scripts": {
     "start": "elm-app start",
     "postinstall": "npm run globalinstall -g && npm run elminstall",
-    "globalinstall": "npm install create-elm-app -g -f",
+    "globalinstall": "npm install -g elm && npm install create-elm-app -g -f",
     "elminstall": "elm-package install -y",
     "build": "elm-app build",
     "netlifybuild": "npm run globalinstall && elm-package install -y && npm run build"
-  },
-  "devDependencies": {
-    "create-elm-app": "^3.0.0"
   },
   "dependencies": {}
 }
