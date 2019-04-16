@@ -1,0 +1,20 @@
+{
+  "name": "elm-bootstrap-starter-demo",
+  "description": "A website to demonstrate Master View Types in Elm",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": "Cedd Burge",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ceddlyburge/elm-bootstrap-starter-demo"
+  },
+  "scripts": {
+    "start": "elm-app start",
+    "postinstall": "npm run globalinstall -g && npm run elminstall",
+    "globalinstall": "npm install create-elm-app -g",
+    "elminstall": "elm-package install -y",
+    "build": "elm-app build",
+    "netlifybuild": "npm run globalinstall && elm-package install -y && npm run build"
+  },
+  "dependencies": {}
+}
