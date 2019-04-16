@@ -77,23 +77,25 @@ view model =
 bootstrapStarterPage: String -> PageContent Msg -> BootstrapStarter Msg 
 bootstrapStarterPage pageTitle pageContent =
     BootstrapStarter
-        "Navbar" 
-        "#"
-        ShowHome
-        [
-            Vanilla (NavBarVanilla "Home" "" ShowHome LinkStateSelected)
-            , Vanilla (NavBarVanilla "Link" "" ShowLink LinkStateVanilla)
-            , BootstrapStarter.DropDown (NavBarDropDown
-                "Dropdown"
-                "dropdown01"
-                ""
-                [
-                    NavBarDropDownItem "Action" "" ShowDropDown 
-                ])
-        ]
-        "Search"
-        UpdateSearchExpression
-        ShowSearchResults
+        (NavBar
+            "Navbar" 
+            ShowHome
+            [
+                Vanilla (NavBarVanilla "Home" ShowHome LinkStateSelected)
+                , Vanilla (NavBarVanilla "Link" ShowLink LinkStateVanilla)
+                , BootstrapStarter.DropDown (NavBarDropDown
+                    "Dropdown"
+                    "dropdown01"
+                    [
+                        NavBarDropDownItem "Action" ShowDropDown 
+                    ])
+            ]
+            (Search 
+                "Search"
+                UpdateSearchExpression
+                ShowSearchResults
+            )
+        )
         pageTitle
         pageContent
 
