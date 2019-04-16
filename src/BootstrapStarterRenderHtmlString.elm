@@ -32,7 +32,8 @@ renderNavBar navBar =
     Html.nav
         [ Attributes.class "navbar navbar-expand-md navbar-dark bg-dark fixed-top" ]
         [ Html.a 
-            [ ]
+            [ Attributes.class "navbar-brand"
+            , Attributes.tabindex 1   ]
             [ Html.text "Navbar" ]
         , Html.button 
             [ Attributes.class "navbar-toggler"
@@ -125,6 +126,7 @@ renderSearch search =
             []
         , Html.button 
             [ Attributes.class "btn btn-outline-success my-2 my-sm-0"
+            , Attributes.attribute "type" "button" 
             , Events.onClick search.onClick 
             ] 
             [ Html.text search.title ]   
