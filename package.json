@@ -12,9 +12,9 @@
     "start": "elm-app start",
     "postinstall": "npm run globalinstall -g && npm run elminstall",
     "globalinstall": "npm install -g elm && npm install create-elm-app -g -f",
-    "elminstall": "elm-package install -y",
+    "elminstall": "elm install -y",
     "build": "elm-app build",
-    "netlifybuild": "npm run globalinstall && elm-package install -y && npm run build"
+    "netlifybuild": "npm run globalinstall && elm install -y && npm run build"
   },
   "dependencies": {}
 }
