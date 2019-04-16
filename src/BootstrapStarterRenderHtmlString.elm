@@ -24,7 +24,6 @@ renderPage bootstrap =
             [ renderNavBar bootstrap.navBar
             , renderPageTitleAndContent bootstrap.pageTitle bootstrap.pageContent
             ]  
-            ++ renderBootstrapScripts
         )
 
 renderNavBar: NavBar msg -> Html msg
@@ -157,31 +156,6 @@ renderPageContent pageContent =
         Custom customHtml ->
             customHtml
 
-renderBootstrapScripts: List (Html msg)
-renderBootstrapScripts =
-        [ Html.node 
-            "script"
-            [ Attributes.attribute "src" "https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            , Attributes.attribute "integrity" "sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-            , Attributes.attribute "crossorigin" "anonymous"
-            ]
-            []
-        , Html.node 
-            "script"
-            [ Attributes.attribute "src" "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-            , Attributes.attribute "integrity" "sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            , Attributes.attribute "crossorigin" "anonymous"
-            ]
-            []    
-        , Html.node 
-            "script"
-            [ Attributes.attribute "src" "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-            , Attributes.attribute "integrity" "sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            , Attributes.attribute "crossorigin" "anonymous"
-            ]
-            []    
-        ]
-
 -- repeating the case statement in selectedClass and selectedSpan is a bit of a code smell but I'm not going to worry about it for now
 selectedClass: LinkState -> String
 selectedClass linkState =
@@ -209,3 +183,30 @@ disabledClass linkState =
             " disabled"
         _ ->
             ""
+
+-- These render as p tags so are not useful.
+-- renderBootstrapScripts: List (Html msg)
+-- renderBootstrapScripts =
+--         [ Html.node 
+--             "script"
+--             [ Attributes.attribute "src" "https://code.jquery.com/jquery-3.2.1.slim.min.js"
+--             , Attributes.attribute "integrity" "sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+--             , Attributes.attribute "crossorigin" "anonymous"
+--             ]
+--             []
+--         , Html.node 
+--             "script"
+--             [ Attributes.attribute "src" "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+--             , Attributes.attribute "integrity" "sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+--             , Attributes.attribute "crossorigin" "anonymous"
+--             ]
+--             []    
+--         , Html.node 
+--             "script"
+--             [ Attributes.attribute "src" "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+--             , Attributes.attribute "integrity" "sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+--             , Attributes.attribute "crossorigin" "anonymous"
+--             ]
+--             []    
+--         ]
+
