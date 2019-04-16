@@ -10,8 +10,7 @@
   },
   "scripts": {
     "start": "elm-app start",
-    "globalinstall": "npm install -g elm && npm install create-elm-app -g -f",
-    "elminstall": "elm install",
+    "globalinstall": "npm install create-elm-app -g -f",
     "build": "elm-app build",
     "netlifybuild": "npm run globalinstall && npm run build"
   },
