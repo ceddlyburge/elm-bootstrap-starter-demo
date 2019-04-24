@@ -14,5 +14,7 @@
     "build": "elm-app build",
     "netlifybuild": "npm run globalinstall && npm run build"
   },
-  "dependencies": {}
+  "dependencies": {
+    "elm": "^0.19.0-bugfix6"
+  }
 }
