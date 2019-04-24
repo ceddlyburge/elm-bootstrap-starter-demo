@@ -4,7 +4,7 @@ import Browser
 import Html exposing (Html, text, div, h1, img)
 import Html.Attributes exposing (src)
 import BootstrapStarter exposing (..)
-import BootstrapStarterRenderHtml exposing (renderPage)
+import BootstrapStarterToHtml exposing (toHtml)
 
 
 ---- MODEL ----
@@ -60,7 +60,7 @@ update msg model =
 view : Model -> Html Msg
 view model =
     masterViewType model
-    |> renderPage
+    |> toHtml
 
 masterViewType : Model -> BootstrapStarter Msg
 masterViewType model =
