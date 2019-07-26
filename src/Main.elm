@@ -31,27 +31,18 @@ init =
 ---- UPDATE ----
 
 type Msg
-    = ShowHome
-    | ShowLink
-    | ShowDropDown
+    = Show Route
     | UpdateSearchExpression String
-    | ShowSearchResults
 
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
-        ShowHome ->
-            ( { model | route = Home } , Cmd.none )
-        ShowLink ->
-            ( { model | route = Link } , Cmd.none )
-        ShowDropDown ->
-            ( { model | route = DropDown } , Cmd.none )
+        Show route ->
+            ( { model | route = route } , Cmd.none )
         UpdateSearchExpression searchExpression ->
             ( { model | searchExpression = searchExpression } , Cmd.none )
-        ShowSearchResults ->
-            ( { model | route = SearchResults } , Cmd.none )
 
 
 ---- VIEW ----
@@ -82,7 +73,7 @@ masterViewType model =
                 "Example Drop Down Link" 
                 (Paragraphs 
                     [ "This is a demonstration website to show the use of Master View Types in Elm"
-                    , "This is the 'Example Drod Down Link' page" ])
+                    , "This is the 'Example Drop Down Link' page" ])
         SearchResults ->
             bootstrapStarterPage 
                 "Search Results" 
@@ -97,21 +88,21 @@ bootstrapStarterPage pageTitle pageContent =
     BootstrapStarter
         (NavBar
             "Navbar" 
-            ShowHome
+            (Show Home)
             [
-                Vanilla (NavBarVanilla "Home" ShowHome LinkStateSelected)
-                , Vanilla (NavBarVanilla "Example Link" ShowLink LinkStateVanilla)
+                Vanilla (NavBarVanilla "Home" (Show Home) LinkStateSelected)
+                , Vanilla (NavBarVanilla "Example Link" (Show Link) LinkStateVanilla)
                 , BootstrapStarter.DropDown (NavBarDropDown
                     "Dropdown"
                     "dropdown01"
                     [
-                        NavBarDropDownItem "Drop Down Link" ShowDropDown 
+                        NavBarDropDownItem "Drop Down Link" (Show DropDown)
                     ])
             ]
             (Search 
                 "Search"
                 UpdateSearchExpression
-                ShowSearchResults
+                (Show SearchResults)
             )
         )
         pageTitle
